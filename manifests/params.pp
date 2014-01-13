@@ -5,11 +5,11 @@
 class limits::params {
 
   $package_name = $::osfamily ? {
-    default => 'limits',
+    default => '',
   }
 
   $config_file_path = $::osfamily ? {
-    default => '/etc/limits/limits.conf',
+    default => '/etc/security/limits.conf',
   }
 
   $config_file_mode = $::osfamily ? {
@@ -25,7 +25,7 @@ class limits::params {
   }
 
   $config_dir_path = $::osfamily ? {
-    default => '/etc/limits',
+    default => '/etc/security/limits.d',
   }
 
   case $::osfamily {

@@ -18,7 +18,7 @@ class limits (
   $config_file_owner        = $limits::params::config_file_owner,
   $config_file_group        = $limits::params::config_file_group,
   $config_file_mode         = $limits::params::config_file_mode,
-  $config_file_require      = 'Package[limits]',
+  $config_file_require      = undef,
   $config_file_replace      = undef,
   $config_file_source       = undef,
   $config_file_template     = undef,
