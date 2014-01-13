@@ -1,0 +1,7 @@
+---
+package_name: 'limits'
+config_file_path:  '/etc/limits/limits.conf'
+config_file_mode: '0644'
+config_file_owner: 'root'
+config_file_group: 'root'
+config_dir_path: '/etc/limits'
