@@ -14,7 +14,7 @@
 
 ##Overview
 
-This module installs and configures limits.
+This module configures limits.
 
 ##Module Description
 
@@ -25,7 +25,6 @@ Refer to http://github.com/stdmod/ for complete documentation on the common para
 ##Setup
 
 ###Resources managed by limits module
-* This module installs the limits package
 * Can manage all the configuration files (by default no file is changed)
 
 ###Setup Requirements
@@ -119,9 +118,9 @@ The module provides also a generic define to manage any limits configuration fil
 ##Operating Systems Support
 
 This is tested on these OS:
-- RedHat osfamily 5 and 6
-- Debian 6 and 7
-- Ubuntu 10.04 and 12.04
+- RedHat osfamily 6
+- Debian 7
+- Ubuntu 12.04
 
 ##Development
 
