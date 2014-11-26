@@ -78,8 +78,14 @@ define limits::conf (
   $manage_mode    = pickx($mode, $limits::config_file_mode)
   $manage_owner   = pickx($owner, $limits::config_file_owner)
   $manage_group   = pickx($group, $limits::config_file_group)
-  $manage_require = pickx($config_file_require, $limits::config_file_require)
-  $manage_replace = pickx($replace, $limits::config_file_replace)
+  $manage_require = $config_file_require ? {
+    undef   => $limits::config_file_require,
+    default => $config_file_require,
+  }
+  $manage_replace = $replace ? {
+    undef   => $limits::config_file_replace,
+    default => $replace,
+  }
 
   file { "limits_conf_${name}":
     ensure  => $ensure,
