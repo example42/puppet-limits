@@ -51,45 +51,43 @@ class limits (
   }
 
   # Dependency class
-  if $limits::dependency_class {
-    include $limits::dependency_class
+  if $dependency_class {
+    include $dependency_class
   }
 
   # Resources managed
-  if $limits::package_name {
-    package { 'limits':
-      ensure => $limits::package_ensure,
-      name   => $limits::package_name,
-    }
+  package { 'limits':
+    ensure => $package_ensure,
+    name   => $package_name,
   }
 
-  if $limits::config_file_path {
+  if $config_file_path {
     file { 'limits.conf':
-      ensure  => $limits::config_file_ensure,
-      path    => $limits::config_file_path,
-      mode    => $limits::config_file_mode,
-      owner   => $limits::config_file_owner,
-      group   => $limits::config_file_group,
-      source  => $limits::config_file_source,
-      content => $limits::manage_config_file_content,
-      require => $limits::config_file_require,
+      ensure  => $config_file_ensure,
+      path    => $config_file_path,
+      mode    => $config_file_mode,
+      owner   => $config_file_owner,
+      group   => $config_file_group,
+      source  => $config_file_source,
+      content => $manage_config_file_content,
+      require => $config_file_require,
     }
   }
 
-  if $limits::config_dir_source {
+  if $config_dir_source {
     file { 'limits.dir':
-      ensure  => $limits::config_dir_ensure,
-      path    => $limits::config_dir_path,
-      source  => $limits::config_dir_source,
-      recurse => $limits::config_dir_recurse,
-      purge   => $limits::config_dir_purge,
-      force   => $limits::config_dir_purge,
-      require => $limits::config_file_require,
+      ensure  => $config_dir_ensure,
+      path    => $config_dir_path,
+      source  => $config_dir_source,
+      recurse => $config_dir_recurse,
+      purge   => $config_dir_purge,
+      force   => $config_dir_purge,
+      require => $config_file_require,
     }
   }
 
   # Extra classes
-  if $limits::my_class {
-    include $limits::my_class
+  if $my_class {
+    include $my_class
   }
 }
